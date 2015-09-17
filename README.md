@@ -1,0 +1,2 @@
+# ProjectNow
+phoneGap class project 
