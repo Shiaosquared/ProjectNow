@@ -60,13 +60,13 @@
               desc: 'Since achieving independence from British India in 1947, Pakistan’s political landscape has been dominated by recurring cycles of political instability of political instability and military intervention... '
           },
           {
-              title: 'Why Did "The US Policy of Containment" Fail in South Asia?',
-              label: '1day ago',
+              title: 'Why Did The US Policy of Containment Fail in South Asia?',
+              label: '1d',
               desc: 'Though South Asia was described by Lloyd Rudolph as being perpetually on the “backburner” of the United States’ foreign policy during the Cold War and so considered to be relatively less important than Western Europe or South-East Asia...'
           },
           {
               title: 'Yet Another Item Title',
-              label: '1day ago',
+              label: '2d',
               desc: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
           }
       ];
