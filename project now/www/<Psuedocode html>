@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+
+</head> 
+<body>
+	
+
+
+
+	check user
+		if user
+			nav to home
+		else
+			show login div
+
+
+	try login
+		if success
+			save user
+			nav to home
+		else
+			alert user
+
+	//login screen 
+		click prompt field 
+		if new user
+			contact server 
+			send user email to confirmation 
+
+	//Splash screen
+		showMotto
+		showTip
+		showQuote
+		 	if success
+		 		show home screen
+
+Home Screen 
+	if user 
+		click article 
+		goToArticleScreen 
+	else 
+		no response 
+
+ArticleScreen 
+	showArticle 
+	showStatistics 
+	
+
+
+
+		 
+
+		
+
+
+
+
+
+</body>
+
+<script> 
+
+	click 
+	button 
+	form
+
+</script> 
+
+
+
+</html> 
