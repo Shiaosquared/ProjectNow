@@ -10,6 +10,7 @@
     <script src="scripts/platformOverrides.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/onsen/js/onsenui.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.6.2.min.js"></script>
 
     <!-- CSS dependencies -->
     <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
@@ -21,6 +22,7 @@
 
     <!-- --------------- App init --------------- -->
     <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
 
     <title>Onsen UI Master-Details</title>
 
@@ -37,6 +39,12 @@
           height: 40px;
           overflow: hidden;
           border-radius: 10px;
+        }
+
+        .author-title {
+          font-size: 10px;
+
+
         }
 
         .item-title {
@@ -57,6 +65,8 @@
             color: #999;
             float: right;
         }
+
+
     </style>
 
 </head>
@@ -67,10 +77,50 @@
     <script src="scripts/index.js"></script>
     <!-- -->
 
+     <ons-navigator var="navigator">
+
+      <ons-page ng-controller="LoginController">
+          <ons-toolbar fixed-style>
+              <div class="right"><ons-toolbar-button ng-click="goToSignup()">Signup</ons-toolbar-button></div>
+              <div class="center">LOGIN</div>
+          </ons-toolbar>
+
+          <div class="login-form">
+              <input type="text" class="text-input--underbar" placeholder="Username" value="" ng-model="login_username">
+              <input type="password" class="text-input--underbar" placeholder="Password" value="" ng-model="login_password">
+
+              <br><br>
+              <ons-button modifier="large" class="login-button" ng-click="login()">Log In</ons-button>
+              <br><br>
+              <ons-button modifier="quiet" class="forgot-password" ng-click="forgotPwd()">Forgot password?</ons-button>
+          </div>
+      </ons-page>
+
+      <ons-template id="signup.html">
+        <ons-page ng-controller="SignupController">
+            <ons-toolbar fixed-style>
+                <div class="right"><ons-toolbar-button ng-click="goToLogin()">Login</ons-toolbar-button></div>
+                <div class="center">SIGN UP</div>
+            </ons-toolbar>
+
+            <div class="login-form">
+              <input type="text" class="text-input--underbar" placeholder="Username" value="" ng-model="signup_username">
+              <input type="password" class="text-input--underbar" placeholder="Password" value="" ng-model="signup_password">
+              <input type="email" class="text-input--underbar" placeholder="Email" value="" ng-model="signup_email">
+
+              <br><br>
+              <ons-button modifier="large" class="login-button" ng-click="signup()">Sign Up</ons-button>
+            </div>
+        </ons-page>
+      </ons-template>
+
+  </ons-navigator>
+
+
     <ons-navigator var="navi">
         <ons-page ng-controller="MasterController"> <!-- "ng" refers to the angular.js -->
             <ons-toolbar>
-                <div class="center">Articles</div>
+                <div class="center">Home</div>
             </ons-toolbar>
 
             <ons-list ng-controller="MasterController">
@@ -78,15 +128,14 @@
                     <ons-row>
                         <ons-col width="60px">
                             <div class="item-thum">
-
                             </div>
                         </ons-col>
                         <ons-col>
                             <header>
-                                <span class="item-title">{{item.title}}</span>
+                                <span class="item-title">{{ item.get('Title') }}</span>
                                 <span class="item-label">{{item.label}}</span>
                             </header>
-                            <p class="item-desc">{{item.desc}}</p>
+                            <p class="item-desc">{{item.get('Description')}}</p>
                         </ons-col>
                     </ons-row>
                 </ons-list-item>
@@ -95,7 +144,7 @@
     </ons-navigator>
 
 
-<!-- DETAIL PAGE -->
+    <!-- DETAIL PAGE -->
 
     <ons-template id="detail.html">
         <ons-page ng-controller="DetailController">
@@ -112,6 +161,11 @@
                    <div class="item-thum">
                                 <img src="assets/icon.png">
                             </div>
+                    <div>
+                        <p class="author-title">Tarun I.</p>
+                        <p class="author-title">Toronto,Canada</p> 
+                    </div>
+
                             <br>
                     <header>
                         <span class="item-title">Here be Dragons</span>
