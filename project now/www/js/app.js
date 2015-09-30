@@ -30,50 +30,7 @@
     $scope.item = $data.selectedItem;
   });
 
-     module.controller('SignupController', function($scope, ParseService) {
 
-      $scope.goToLogin = function() {
-        $scope.navigator.popPage();
-      }
-
-      $scope.signup = function() {
-        ParseService.signUp($scope.signup_username, $scope.signup_password, $scope.signup_email, function(user) {
-          console.log('signed up !!!');
-          $scope.navigator.pushPage("master.html");
-        });
-      }
-
-  });
-
-  module.controller('LoginController', function($scope, ParseService) {
-
-    var init = function() {
-      if($scope.currentUser) {
-        console.log("USER: " + $scope.currentUser.getUsername() );
-        $scope.navigator.pushPage("master.html");
-      }
-      else {
-        console.log("NO USER ");
-      }
-    };
-    init();
-
-    $scope.goToSignup = function() {
-      $scope.navigator.pushPage('signup.html');
-    }
-
-    $scope.forgotPwd = function() {
-      ons.notification.alert({message: 'this still needs to be coded!'});
-    }
-
-    $scope.login = function() {
-      ParseService.login($scope.login_username, $scope.login_password, function(user) {
-        console.log('logged in !!!');
-        $scope.navigator.pushPage("master.html");
-      });
-    }
-
-  });
 
 
 
